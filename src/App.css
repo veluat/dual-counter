@@ -50,14 +50,6 @@
     border-color: red;
 
 }
-/*error*/
-.text_2 {
-    padding-top: 35px;
-    text-align: center;
-    color: red;
-    font-size: 25px;
-    font-weight: bold;
-}
 
 /*counter*/
 .text {
@@ -78,12 +70,29 @@
 
 }
 
+.red-text {
+    padding-top: 35px;
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .red {
     text-align: center;
     color: red;
     font-size: 80px;
     font-weight: bold;
     padding-top: 18px;
+}
+
+/*error*/
+.text_2 {
+    padding-top: 35px;
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .button {

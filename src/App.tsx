@@ -87,7 +87,7 @@ function App() {
 
     const [disabled, setDisabled] = useState(true);
 
-    const error = MAXVALUE <= 0 || STARTVALUE < 0 || MAXVALUE <= STARTVALUE || MAXVALUE > 10000 || STARTVALUE > 10000;
+    const error = MAXVALUE <= 0 || STARTVALUE < 0 || MAXVALUE < STARTVALUE || MAXVALUE > 10000 || STARTVALUE > 10000;
 
     return (
         <div>
