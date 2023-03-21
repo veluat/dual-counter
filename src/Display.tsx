@@ -5,12 +5,10 @@ type DisplayPropsType = {
     max: number
     error: boolean
     disabled: boolean
-
 }
 
 const text = "Enter values and press 'set'"
 const text2 = 'Danger! Incorrect value!'
-
 
 export const Display = (props: DisplayPropsType) => {
     return (
