@@ -22,9 +22,9 @@ export const counterReducer = (state = initialState, action: ActionsType): State
         case 'RESET-COUNT' :
             return {...state, count: state.startValue}
         case 'CHANGE-START-VALUE' :
-            return {...state, startValue: Math.floor(action.start), disabled: false}
+            return {...state, startValue: action.start, disabled: false}
         case 'CHANGE-MAX-VALUE' :
-            return {...state, maxValue: Math.floor(action.max), disabled: false}
+            return {...state, maxValue: action.max, disabled: false}
         case 'COUNTER-SETTINGS' :
             return {...state, count: state.startValue, disabled: true}
         default:
