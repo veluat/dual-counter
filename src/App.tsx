@@ -116,10 +116,13 @@ export function App() {
                     </div>
                 </div>
                 <div className='container'>
-                    <Display counter={state.count} max={state.maxValue} disabled={state.disabled}
+                    <Display counter={state.count}
+                             max={state.maxValue}
+                             disabled={state.disabled}
                              error={error}/>
                     <div className='display_button'>
-                        <Button name={'Inc'} isDisabled={state.count === state.maxValue || !state.disabled}
+                        <Button name={'Inc'}
+                                isDisabled={state.count === state.maxValue || !state.disabled}
                                 counterSettings={increaseCount}/>
                         <Button name={'Reset'}
                                 isDisabled={state.count === state.startValue || !state.disabled}
