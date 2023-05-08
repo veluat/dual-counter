@@ -10,6 +10,7 @@ export type ActionsType = ReturnType<typeof increaseCountAC>
     | ReturnType<typeof changeStartValueAC>
     | ReturnType<typeof changeMaxValueAC>
     | ReturnType<typeof counterSettingsAC>
+    | ReturnType<typeof setCountFromLocalStorageAC>
 
 export const initialState: StateType = {count: 0, maxValue: 5, startValue: 0, disabled: true}
 
@@ -19,6 +20,8 @@ export const counterReducer = (state = initialState, action: ActionsType): State
             return (state.count < state.maxValue && state.count >= state.startValue)
                 ? {...state, count: state.count + 1}
                 : state
+        case 'SET-COUNT' :
+            return {...state, count: action.value}
         case 'RESET-COUNT' :
             return {...state, count: state.startValue}
         case 'CHANGE-START-VALUE' :
@@ -32,8 +35,9 @@ export const counterReducer = (state = initialState, action: ActionsType): State
     }
 }
 
-export const increaseCountAC = () => ({type: 'INC-COUNT'}) as const
-export const resetCountAC = () => ({type: 'RESET-COUNT'}) as const
-export const changeStartValueAC = (start: number) => ({type: 'CHANGE-START-VALUE', start}) as const
-export const changeMaxValueAC = (max: number) => ({type: 'CHANGE-MAX-VALUE', max}) as const
-export const counterSettingsAC = () => ({type: 'COUNTER-SETTINGS'}) as const
+export const increaseCountAC = () => ({type: 'INC-COUNT'} as const)
+export const setCountFromLocalStorageAC = (value: number) => ({type: 'SET-COUNT', value} as const)
+export const resetCountAC = () => ({type: 'RESET-COUNT'} as const)
+export const changeStartValueAC = (start: number) => ({type: 'CHANGE-START-VALUE', start} as const)
+export const changeMaxValueAC = (max: number) => ({type: 'CHANGE-MAX-VALUE', max} as const)
+export const counterSettingsAC = () => ({type: 'COUNTER-SETTINGS'} as const)
