@@ -1,0 +1,40 @@
+@import '../../styles/mixin';
+
+.display {
+  @include display;
+}
+/*counter*/
+.text {
+  padding-top: 22px;
+  text-align: center;
+  color:  #61dafb;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+/*error*/
+.error {
+  padding-top: 35px;
+  text-align: center;
+  color: #C82D2B;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*blue text*/
+.text_3 {
+  padding-top: 35px;
+  text-align: center;
+  color:  #61dafb;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+.red {
+  text-align: center;
+  color: #C82D2B;
+  font-size: 80px;
+  font-weight: bold;
+  padding-top: 18px;
+}
