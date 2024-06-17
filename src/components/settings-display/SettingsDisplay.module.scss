@@ -1,0 +1,21 @@
+@import '../../styles/mixin';
+
+.display {
+  @include display;
+
+  .input {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+
+.input_error {
+  text-align: center;
+  margin-top: 15px;
+  color: #C82D2B;
+  border-color: #C82D2B;
+
+}
