@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from 'react';
-
+import s from './SettingsDisplay.module.scss'
+import clsx from 'clsx'
 type SelectButtonPropsType = {
     startValue: number
     maxValue: number
@@ -8,7 +9,7 @@ type SelectButtonPropsType = {
     error: boolean
 }
 
-export const DisplayValue = (props: SelectButtonPropsType) => {
+export const SettingsDisplay = (props: SelectButtonPropsType) => {
 
     const selectMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.changeMaxValue(+e.currentTarget.value)
@@ -16,29 +17,29 @@ export const DisplayValue = (props: SelectButtonPropsType) => {
     const selectStartValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.changeStartValue(+e.currentTarget.value)
     }
-
+const finallyStyles = clsx(s.input, props.error && s.input_error)
     return (
-        <div className='display'>
-            <div className='input'>max value:
-                <input className={props.error ? 'input_error' : 'input'}
+        <div className={s.display}>
+            <label className={s.input}>
+                <span>max value:</span>
+                <input className={finallyStyles}
                        type="number"
                        min={1}
                        max={100000}
                        onChange={selectMaxValue}
                        step="1"
                        value={props.maxValue}/>
-            </div>
-            <div className='input'>
-                <div>start value:
-                    <input className={props.error ? 'input_error' : 'input'}
+            </label>
+            <label className={s.input}>
+                    <span>start value:</span>
+                    <input className={finallyStyles}
                            type="number"
                            min={-1}
                            max={100000}
                            onChange={selectStartValue}
                            step="1"
                            value={props.startValue}/>
-                </div>
-            </div>
+            </label>
         </div>
     )
 }
