@@ -1,4 +1,4 @@
-import {AppRootStateType} from "../bll/store";
+import {AppRootStateType} from "../app/reducer/store";
 
 export const loadState = () => {
     try {
