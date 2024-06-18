@@ -1,6 +1,6 @@
 import {combineReducers, legacy_createStore} from "redux";
 import {counterReducer} from "./counterReducer";
-import {loadState, saveState} from "../utils/localstorage-utils";
+import {loadState, saveState} from "../../utils/localstorage-utils";
 
 export type AppRootStateType = ReturnType<typeof rootReducer>
 
