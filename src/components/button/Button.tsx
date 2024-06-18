@@ -8,16 +8,16 @@ type PropsType = {
 }
 
 export const Button = (props: PropsType) => {
-  const {name, counterSettings, onBackClick, isDisabled} = props
+  const { name, counterSettings, onBackClick, isDisabled } = props;
   const handleClick = () => {
-    counterSettings?.()
+    counterSettings?.();
     if (onBackClick) {
-      onBackClick()
+      onBackClick();
     }
-  }
+  };
   return (
-    <button className={s.button}
-            disabled={isDisabled}
-            onClick={handleClick}>{name}</button>
-  )
-}
+    <button className={s.button} disabled={isDisabled} onClick={handleClick}>
+      {name}
+    </button>
+  );
+};

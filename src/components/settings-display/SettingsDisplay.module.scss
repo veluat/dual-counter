@@ -1,21 +1,40 @@
 @import '../../styles/mixin';
 
 .display {
-  @include display;
+  @include container;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 400px;
+  height: 200px;
 
-  .input {
+  .wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-top: 15px;
+    gap: 50px;
+    color: #61dafb;
+
+    .input {
+      width: 100px;
+      border-radius: 5px;
+      border: 3px solid #61dafb;
+      outline: none;
+      text-align: center;
+      font-size: 25px;
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .error {
+    color: #df3330;
+
+    .input {
+      border-color: #df3330;
+      color: #df3330;
+    }
   }
 }
 
-.input_error {
-  text-align: center;
-  margin-top: 15px;
-  color: #C82D2B;
-  border-color: #C82D2B;
-
-}

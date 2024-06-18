@@ -1,40 +1,32 @@
 @import '../../styles/mixin';
 
 .display {
-  @include display;
-}
-/*counter*/
-.text {
-  padding-top: 22px;
-  text-align: center;
-  color:  #61dafb;
-  font-size: 70px;
-  font-weight: bold;
-}
+  @include container;
+  max-width: 400px;
+  height: 200px;
 
-/*error*/
-.error {
-  padding-top: 35px;
-  text-align: center;
-  color: #C82D2B;
-  font-size: 25px;
-  font-weight: bold;
-}
+  .value {
+    color: #61dafb;
+    font-size: 100px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-/*blue text*/
-.text_3 {
-  padding-top: 35px;
-  text-align: center;
-  color:  #61dafb;
-  font-size: 25px;
-  font-weight: bold;
+  .notification,
+  .info {
+    font-size: 28px;
+    color: #61dafb;
+  }
 
-}
+  .error,
+  .plusSize{
+    color: #df3330;
+  }
 
-.red {
-  text-align: center;
-  color: #C82D2B;
-  font-size: 80px;
-  font-weight: bold;
-  padding-top: 18px;
+  .plusSize {
+    font-size: 130px;
+  }
+
 }

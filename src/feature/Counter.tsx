@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {CountDisplay} from "../components/count-display/CountDisplay";
 import {Button} from "../components/button/Button";
+import {ErrorType} from '../app/App'
 
 type CounterProps = {
   count: number;
   maxValue: number;
   startValue: number;
   disabled: boolean;
-  error: boolean;
+  error: ErrorType;
   onIncrement: () => void;
   onReset: () => void;
   isSet?: boolean

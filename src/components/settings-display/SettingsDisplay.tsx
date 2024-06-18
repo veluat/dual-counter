@@ -1,45 +1,62 @@
 import React, {ChangeEvent} from 'react';
 import s from './SettingsDisplay.module.scss'
 import clsx from 'clsx'
-type SelectButtonPropsType = {
-    startValue: number
-    maxValue: number
-    changeStartValue: (start: number) => void
-    changeMaxValue: (max: number) => void
-    error: boolean
+import {ErrorType} from '../../app/App'
+
+type SettingsDisplayPropsType = {
+  startValue: number
+  maxValue: number
+  changeStartValue: (start: number) => void
+  changeMaxValue: (max: number) => void
+  error: ErrorType
 }
 
-export const SettingsDisplay = (props: SelectButtonPropsType) => {
+export const SettingsDisplay: React.FC<SettingsDisplayPropsType> = ({
+                                                                      startValue,
+                                                                      maxValue,
+                                                                      changeStartValue,
+                                                                      changeMaxValue,
+                                                                      error,
+                                                                    }) => {
 
-    const selectMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeMaxValue(+e.currentTarget.value)
-    }
-    const selectStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeStartValue(+e.currentTarget.value)
-    }
-const finallyStyles = clsx(s.input, props.error && s.input_error)
-    return (
-        <div className={s.display}>
-            <label className={s.input}>
-                <span>max value:</span>
-                <input className={finallyStyles}
-                       type="number"
-                       min={1}
-                       max={100000}
-                       onChange={selectMaxValue}
-                       step="1"
-                       value={props.maxValue}/>
-            </label>
-            <label className={s.input}>
-                    <span>start value:</span>
-                    <input className={finallyStyles}
-                           type="number"
-                           min={-1}
-                           max={100000}
-                           onChange={selectStartValue}
-                           step="1"
-                           value={props.startValue}/>
-            </label>
-        </div>
-    )
+  const selectMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+    changeMaxValue(+e.currentTarget.value)
+  }
+  const selectStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+    changeStartValue(+e.currentTarget.value)
+  }
+  const classNames = {
+    root: s.display,
+    wrapperStart: clsx(s.wrapper, {
+      [s.error]: error && error.startValueError,
+    }),
+    wrapperMax: clsx(s.wrapper, {
+      [s.error]: error && error.maxValueError,
+    }), input: clsx(s.input, error && s.error)
+  }
+  return (
+    <div className={classNames.root}>
+      <div className={classNames.wrapperMax}>
+        max value:
+        <input
+          className={classNames.input}
+          type="number"
+          min={1}
+          max={100000}
+          onChange={selectMaxValue}
+          step="1"
+          value={maxValue}/>
+      </div>
+      <div className={classNames.wrapperStart}>
+        start value:
+        <input className={classNames.input}
+               type="number"
+               min={-1}
+               max={100000}
+               onChange={selectStartValue}
+               step="1"
+               value={startValue}/>
+      </div>
+    </div>
+  )
 }
