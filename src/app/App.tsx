@@ -1,9 +1,7 @@
 import React from 'react';
 import s from './App.module.scss'
-import {CountDisplay} from "../components/count-display/CountDisplay";
-import {Button} from "../components/button/Button";
-import {SettingsDisplay} from "../components/settings-display/SettingsDisplay";
 import {
+  changeEditModeAC,
   changeMaxValueAC,
   changeStartValueAC,
   counterSettingsAC,
@@ -13,13 +11,25 @@ import {
 } from "./reducer/counterReducer";
 import {AppRootStateType} from "./reducer/store";
 import {useDispatch, useSelector} from "react-redux";
+import {SwitchButtons} from '../components/switch-buttons/SwitchButtons'
+import {IntegratedCounter} from '../feature/integrated-counter/IntegratedCounter'
+import {Counter} from '../feature/counter/Counter'
+
 export type ErrorType = {
   startValueError: boolean;
   maxValueError: boolean;
 };
+export type VariantType = 'counter' | 'integrated counter'
+
 export function App() {
 
-  const {count, maxValue, startValue, disabled} = useSelector<AppRootStateType, StateType>(state => state.count);
+  const {
+    count,
+    maxValue,
+    startValue,
+    disabled,
+    isEditMode
+  } = useSelector<AppRootStateType, StateType>(state => state.count);
   const dispatch = useDispatch()
 
   const increaseCount = () => {
@@ -44,6 +54,11 @@ export function App() {
   const counterSet = () => {
     dispatch(counterSettingsAC())
   }
+
+  const setEditMode = (isEditMode: boolean) => {
+    dispatch(changeEditModeAC(isEditMode))
+  }
+
   const error = {
     startValueError:
       maxValue <= 0 ||
@@ -55,36 +70,39 @@ export function App() {
       maxValue < startValue ||
       maxValue > 10000,
   }
-
+  const [counterVariant, setCounterVariant] = React.useState<VariantType>('counter')
+  const changeVariant = (variant: VariantType) => {
+    setCounterVariant(variant)
+  }
   return (
-    <div className={s.app}>
-      <div className={s.container}>
-        <SettingsDisplay maxValue={maxValue} startValue={startValue}
-                         changeStartValue={changeStartValue}
-                         changeMaxValue={changeMaxValue}
-                         error={error}
-        />
-        <div className={s.display_button}>
-          <Button name={'Set'}
-                  isDisabled={error.startValueError || error.maxValueError || disabled}
-                  counterSettings={counterSet}
-          />
-        </div>
-      </div>
-      <div className={s.container}>
-        <CountDisplay counter={count}
-                      max={maxValue}
-                      disabled={disabled}
-                      error={error}/>
-        <div className={s.display_button}>
-          <Button name={'Inc'}
-                  isDisabled={count === maxValue || !disabled}
-                  counterSettings={increaseCount}/>
-          <Button name={'Reset'}
-                  isDisabled={count === startValue || !disabled}
-                  counterSettings={resetCount}/>
-        </div>
-      </div>
+
+    <div className={s.root}>
+      <SwitchButtons currentVariant={counterVariant} changeVariant={changeVariant}/>
+      {counterVariant === 'counter' &&
+        (<Counter count={count}
+                  maxValue={maxValue}
+                  startValue={startValue}
+                  disabled={disabled}
+                  error={error}
+                  counterSet={counterSet}
+                  changeStartValue={changeStartValue}
+                  changeMaxValue={changeMaxValue}
+                  increaseCount={increaseCount}
+                  resetCount={resetCount}/>)}
+
+      {counterVariant === 'integrated counter' &&
+        (<IntegratedCounter count={count}
+                            maxValue={maxValue}
+                            startValue={startValue}
+                            disabled={disabled}
+                            error={error}
+                            counterSet={counterSet}
+                            changeStartValue={changeStartValue}
+                            changeMaxValue={changeMaxValue}
+                            increaseCount={increaseCount}
+                            resetCount={resetCount}
+                            setEditMode={setEditMode}
+                            isEditMode={isEditMode}/>)}
     </div>
-  );
+  )
 }
