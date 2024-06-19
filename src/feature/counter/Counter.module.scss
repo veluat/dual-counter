@@ -1,0 +1,22 @@
+@import '../../styles/mixin';
+
+.root {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .container {
+    @include container;
+    flex-direction: column;
+    max-width: 500px;
+
+
+    .display_button {
+      @include container;
+
+      height: 120px;
+      max-width: 400px;
+    }
+  }
+}
