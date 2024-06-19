@@ -1,22 +1,9 @@
 @import './../styles/mixin';
-.app {
-  width: 100%;
-  min-width: 1200px;
+
+.root {
+  height: 100vh;
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-
-  .container {
-    @include container;
-    flex-direction: column;
-    max-width: 500px;
-
-
-    .display_button {
-      @include container;
-
-      height: 120px;
-      max-width: 400px;
-    }
-  }
 }
