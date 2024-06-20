@@ -1,0 +1,45 @@
+@import 'variable';
+
+@mixin flex(
+  $display: flex,
+  $direction: row,
+  $wrap: nowrap,
+  $justify: center,
+  $align: center,
+  $gap: 0
+) {
+  display: $display;
+  flex-flow: $direction $wrap;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin container($max-width: 500px, $height: 100%) {
+  @include flex;
+  border: 4px solid $primaryColor;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: $max-width;
+  height: $height;
+  margin: 0 auto;
+  position: relative;
+}
+
+@mixin font(
+  $size: 30px,
+  $weight: bold,
+  $height: 1.2,
+  $color: $brightColor,
+  $decoration: none
+) {
+  margin: 0;
+
+  font-family: Inter, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+  text-decoration: $decoration;
+}

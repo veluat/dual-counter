@@ -1,0 +1,24 @@
+@import '../../styles/mixin';
+@import '../../styles/variable';
+
+.button {
+  all: unset;
+  @include font($color: $darkColor);
+  @include flex;
+  border-radius: 15px;
+  height: 50px;
+  padding: 0 20px;
+  margin: 20px;
+  background-color: $primaryColor;
+
+  &:focus-visible {
+    outline: 2px solid $brightColor;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(97, 218, 251, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+}

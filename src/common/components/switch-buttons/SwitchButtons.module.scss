@@ -1,0 +1,48 @@
+@import '../../styles/variable';
+@import '../../styles/mixin';
+
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background-color: $primaryColor;
+
+  .buttonWrapper {
+    width: 100%;
+    @include flex;
+    background-color: $backgroundColor;
+    color: $brightColor;
+
+    .button {
+      all: unset;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+      @include font($weight: normal);
+
+    }
+
+    .disabled {
+      background-color: $primaryColor;
+      cursor: pointer;
+      @include font($weight: bold, $color: $darkColor);
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+
+      }
+    }
+
+    .roundedRight {
+      border-radius: 0 0 15px 0;
+    }
+
+    .roundedLeft {
+      border-radius: 0 0 0 15px;
+    }
+  }
+}
+

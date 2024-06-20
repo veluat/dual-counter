@@ -1,15 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import s from './SettingsDisplay.module.scss'
 import clsx from 'clsx'
-import {ErrorType} from '../../app/App'
-
-type SettingsDisplayPropsType = {
-  startValue: number
-  maxValue: number
-  changeStartValue: (start: number) => void
-  changeMaxValue: (max: number) => void
-  error: ErrorType
-}
+import {SettingsDisplayPropsType} from '../../types'
 
 export const SettingsDisplay: React.FC<SettingsDisplayPropsType> = ({
                                                                       startValue,
@@ -27,12 +19,9 @@ export const SettingsDisplay: React.FC<SettingsDisplayPropsType> = ({
   }
   const classNames = {
     root: s.display,
-    wrapperStart: clsx(s.wrapper, {
-      [s.error]: error && error.startValueError,
-    }),
-    wrapperMax: clsx(s.wrapper, {
-      [s.error]: error && error.maxValueError,
-    }), input: clsx(s.input, error && s.error)
+    wrapperStart: clsx(s.wrapper, {[s.error]: error && error.startValueError,}),
+    wrapperMax: clsx(s.wrapper, {[s.error]: error && error.maxValueError,}),
+    input: clsx(s.input, error && s.error)
   }
   return (
     <div className={classNames.root}>

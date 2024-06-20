@@ -1,0 +1,8 @@
+@import '../../common/styles/mixin';
+
+.root {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include flex;
+}

@@ -1,0 +1,23 @@
+@import '../../styles/mixin';
+@import '../../styles/variable';
+
+.root {
+  @include container($height: 200px);
+  @include font(100px, $primaryColor);
+  vertical-align: middle;
+  color: $primaryColor;
+  .notification,
+  .info {
+    @include font($size: 28px, $color: $primaryColor)
+  }
+
+  .error,
+  .plusSize{
+    color: $errorColor;
+  }
+
+  .plusSize {
+   font-size: 130px;
+  }
+
+}
