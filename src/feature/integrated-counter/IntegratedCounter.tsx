@@ -1,82 +1,61 @@
 import React from 'react';
-import {SettingsDisplay} from '../../components/settings-display/SettingsDisplay';
-import {Button} from '../../components/button/Button';
-import {ErrorType} from '../../app/App'
+import {SettingsDisplay} from '../../common/components';
+import {Button} from '../../common/components';
 import s from './IntegratedCounter.module.scss'
-import {CountDisplay} from '../../components/count-display/CountDisplay'
+import {CountDisplay} from '../../common/components'
+import {CounterSettingsPropsType} from '../../common/types'
 
-type CounterSettingsProps = {
-  count: number;
-  maxValue: number;
-  startValue: number;
-  disabled: boolean;
-  error: ErrorType;
-  counterSet: () => void;
-  changeStartValue: (start: number) => void
-  changeMaxValue: (max: number) => void
-  increaseCount: () => void
-  resetCount: () => void
-  setEditMode: (isEditMode: boolean) => void
-  isEditMode: boolean
-};
-
-export const IntegratedCounter: React.FC<CounterSettingsProps> = ({
-                                                                    setEditMode,
-                                                                    isEditMode,
-                                                                    count,
-                                                                    maxValue,
-                                                                    startValue,
-                                                                    disabled,
-                                                                    error,
-                                                                    counterSet,
-                                                                    changeStartValue,
-                                                                    changeMaxValue,
-                                                                    increaseCount,
-                                                                    resetCount,
-                                                                  }) => {
+export const IntegratedCounter: React.FC<CounterSettingsPropsType> = ({
+                                                                        triggerCounterSet,
+                                                                        changeStartValue,
+                                                                        changeMaxValue,
+                                                                        increaseCount,
+                                                                        resetCount,
+                                                                        ...countState
+                                                                      }) => {
   const counterSettingsHandler = () => {
-    counterSet()
-    setEditMode(!isEditMode)
+    triggerCounterSet()
+    countState.setEditMode(!countState.isEditMode)
   }
 
   return (
-    <>
-      {isEditMode ?
-        (<div className={s.container}>
-          <SettingsDisplay
-            maxValue={maxValue}
-            startValue={startValue}
-            changeStartValue={changeStartValue}
-            changeMaxValue={changeMaxValue}
-            error={error}
-          />
-          <div className={s.display_button}>
-            <Button
-              name={'Set'}
-              isDisabled={error.startValueError || error.maxValueError}
-              counterSettings={counterSettingsHandler}
+    <div className={s.root}>
+      {
+        countState.isEditMode ?
+          (<div className={s.container}>
+            <SettingsDisplay
+              maxValue={countState.maxValue}
+              startValue={countState.startValue}
+              changeStartValue={changeStartValue}
+              changeMaxValue={changeMaxValue}
+              error={countState.error}
             />
-          </div>
-        </div>)
-        : (<div className={s.container}>
-          <CountDisplay counter={count}
-                        max={maxValue}
-                        disabled={disabled}
-                        error={error}/>
-          <div className={s.display_button}>
-            <Button name={'Inc'}
-                    isDisabled={count === maxValue || !disabled}
-                    counterSettings={increaseCount}/>
-            <Button name={'Reset'}
-                    isDisabled={count === startValue || !disabled}
-                    counterSettings={resetCount}/>
-            <Button
-              name={'Set'}
-              isDisabled={false}
-              counterSettings={() => setEditMode(!isEditMode)}
-            />
-          </div>
-        </div>)}
-    </>
+            <div className={s.display_button}>
+              <Button
+                name={'set'}
+                isDisabled={countState.error.startValueError || countState.error.maxValueError || countState.disabled}
+                triggerCounterSet={counterSettingsHandler}
+              />
+            </div>
+          </div>)
+          : (<div className={s.container}>
+            <CountDisplay counter={countState.count} disabled={countState.disabled} error={countState.error}
+                          maxValue={countState.maxValue}/>
+            <div className={s.display_button}>
+              <Button name={'inc'}
+                      isDisabled={countState.count === countState.maxValue || !countState.disabled}
+                      triggerCounterSet={increaseCount}/>
+              <Button name={'reset'}
+                      isDisabled={countState.count === countState.startValue || !countState.disabled}
+                      triggerCounterSet={resetCount}/>
+              <Button
+                name={'set'}
+                isDisabled={false}
+                triggerCounterSet={() => countState.setEditMode(!countState.isEditMode)}
+              />
+            </div>
+          </div>)
+      }
+    </div>
   )
 }
