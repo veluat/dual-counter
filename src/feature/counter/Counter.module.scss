@@ -1,22 +1,16 @@
-@import '../../styles/mixin';
+@import '../../common/styles/mixin';
 
 .root {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex($justify: space-evenly);
+  width: 100%;
 
   .container {
     @include container;
-    flex-direction: column;
-    max-width: 500px;
-
+    @include flex($direction: column, $gap: 20px);
+    margin: 0;
 
     .display_button {
-      @include container;
-
-      height: 120px;
-      max-width: 400px;
+      @include container($height: 120px);
     }
   }
 }

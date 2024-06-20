@@ -1,15 +1,13 @@
-@import '../../styles/mixin';
+@import '../../common/styles/mixin';
 
+.root {
+  width: 100%;
 .container {
   @include container;
-  flex-direction: column;
-  max-width: 500px;
-
+  @include flex($direction: column, $gap: 20px);
 
   .display_button {
-    @include container;
-
-    height: 120px;
-    max-width: 400px;
+    @include container($height: 120px);
   }
+}
 }
