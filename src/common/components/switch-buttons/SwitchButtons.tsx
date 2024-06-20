@@ -1,14 +1,12 @@
 import React from 'react';
 import s from './SwitchButtons.module.scss'
-import {VariantType} from '../../app/App'
 import clsx from 'clsx'
+import {SwitchButtonsPropsType} from '../../types'
 
-type SwitchButtonsProps = {
-  currentVariant: VariantType;
-  changeVariant: (variant: VariantType) => void;
-}
-
-export const SwitchButtons: React.FC<SwitchButtonsProps> = ({currentVariant, changeVariant}) => {
+export const SwitchButtons: React.FC<SwitchButtonsPropsType> = ({
+                                                                  currentVariant,
+                                                                  changeVariant
+                                                                }) => {
   const classNames = {
     root: s.root,
     buttonWrapper: s.buttonWrapper,
