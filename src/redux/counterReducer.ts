@@ -14,25 +14,25 @@ const initialState = {
 }
 
 export const counterReducer = (state: InitialStateType = initialState, action: CounterActions): InitialStateType => {
-  let startValue = state.startValue;
-  let maxValue = state.maxValue;
+  let startValue = state.startValue
+  let maxValue = state.maxValue
 
-  let startValueError = false;
-  let maxValueError = false;
+  let startValueError = false
+  let maxValueError = false
 
   if (action.type === CounterActionTypes.CHANGE_START_VALUE) {
-    startValue = action.start;
+    startValue = action.start
   }
 
   if (action.type === CounterActionTypes.CHANGE_MAX_VALUE) {
-    maxValue = action.max;
+    maxValue = action.max
   }
 
   if (maxValue <= 0 || startValue < 0 || startValue > maxValue || startValue > 10000) {
-    startValueError = true;
+    startValueError = true
   }
   if (maxValue <= 0 || maxValue < startValue || maxValue > 10000) {
-    maxValueError = true;
+    maxValueError = true
   }
   switch (action.type) {
     case CounterActionTypes.INCREASE:

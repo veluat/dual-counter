@@ -1,13 +1,6 @@
 @import 'variable';
 
-@mixin flex(
-  $display: flex,
-  $direction: row,
-  $wrap: nowrap,
-  $justify: center,
-  $align: center,
-  $gap: 0
-) {
+@mixin flex($display: flex, $direction: row, $wrap: nowrap, $justify: center, $align: center, $gap: 0) {
   display: $display;
   flex-flow: $direction $wrap;
   gap: $gap;
@@ -27,15 +20,8 @@
   position: relative;
 }
 
-@mixin font(
-  $size: 30px,
-  $weight: bold,
-  $height: 1.2,
-  $color: $brightColor,
-  $decoration: none
-) {
+@mixin font( $size: 30px, $weight: bold, $height: 1.2, $color: $brightColor, $decoration: none) {
   margin: 0;
-
   font-family: Inter, sans-serif;
   font-size: $size;
   font-weight: $weight;

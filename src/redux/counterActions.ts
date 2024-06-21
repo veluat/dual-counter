@@ -11,30 +11,30 @@ import {useDispatch} from 'react-redux'
 
 export const increaseAC = (): IncreaseAction => ({
   type: CounterActionTypes.INCREASE,
-});
+})
 
 export const resetCountAC = (): ResetAction => ({
   type: CounterActionTypes.RESET,
-});
+})
 
 export const changeStartValueAC = (start: number): ChangeStartValueAction => ({
   type: CounterActionTypes.CHANGE_START_VALUE,
   start,
-});
+})
 
 export const changeMaxValueAC = (max: number): ChangeMaxValueAction => ({
   type: CounterActionTypes.CHANGE_MAX_VALUE,
   max,
-});
+})
 
 export const triggerCounterSetAC = (): TriggerCounterSetAction => ({
   type: CounterActionTypes.COUNTER_SETTINGS,
-});
+})
 
 export const changeEditModeAC = (isEditMode: boolean): ChangeEditModeAction => ({
   type: CounterActionTypes.CHANGE_EDIT_MODE,
   isEditMode,
-});
+})
 
 // Create a custom hook to manage the counter actions
 

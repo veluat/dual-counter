@@ -21,7 +21,6 @@
       width: 100%;
       text-align: center;
       @include font($weight: normal);
-
     }
 
     .disabled {
@@ -32,7 +31,6 @@
       &:hover {
         box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
         transition: 0.3s;
-
       }
     }
 

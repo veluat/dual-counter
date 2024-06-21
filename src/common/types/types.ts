@@ -22,7 +22,7 @@ export type InitialStateType = {
 export type ButtonPropsType = {
   name: string
   triggerCounterSet: () => void
-  isDisabled: boolean
+  isDisabled?: boolean
 }
 
 export type DisplayPropsType = {
@@ -35,9 +35,10 @@ export type DisplayPropsType = {
 export type SettingsDisplayPropsType = {
   startValue: number
   maxValue: number
+  error: Partial<ErrorType>
   changeStartValue: (start: number) => void
   changeMaxValue: (max: number) => void
-  error: Partial<ErrorType>
+  handleSettingsChange?: () => void
 }
 
 export type CounterPropsType = InitialStateType & {
