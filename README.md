@@ -20,7 +20,7 @@ You can also switch from a dual-monitor setup to an integrated one.**
   + The application includes error handling mechanisms to ensure that the counter's state is properly loaded and saved, and it provides feedback to the user in case of any issues.
 + **TypeScript:**
   + The entire project is written in TypeScript, which provides strong type checking and better tooling support, improving the overall code quality and maintainability.
-+ Responsive Design:
++ **Responsive Design:**
   + The application is designed to be responsive and mobile-friendly
     Provides an optimal user experience across different devices and screen sizes
 
