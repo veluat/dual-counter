@@ -1,8 +1,6 @@
 import React from 'react';
-import {SettingsDisplay} from '../../common/components';
-import {Button} from '../../common/components';
+import {Button, CountDisplay, SettingsDisplay} from '../../common/components';
 import s from './IntegratedCounter.module.scss'
-import {CountDisplay} from '../../common/components'
 import {CounterSettingsPropsType} from '../../common/types'
 
 export const IntegratedCounter: React.FC<CounterSettingsPropsType> = ({
@@ -33,7 +31,7 @@ export const IntegratedCounter: React.FC<CounterSettingsPropsType> = ({
             <div className={s.display_button}>
               <Button
                 name={'set'}
-                isDisabled={countState.error.startValueError || countState.error.maxValueError || countState.disabled}
+                isDisabled={countState.error.startValueError || countState.error.maxValueError}
                 triggerCounterSet={counterSettingsHandler}
               />
             </div>

@@ -9,13 +9,16 @@ export const SettingsDisplay: React.FC<SettingsDisplayPropsType> = ({
                                                                       changeStartValue,
                                                                       changeMaxValue,
                                                                       error,
+                                                                      handleSettingsChange
                                                                     }) => {
 
   const selectMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
     changeMaxValue(+e.currentTarget.value)
+    handleSettingsChange?.()
   }
   const selectStartValue = (e: ChangeEvent<HTMLInputElement>) => {
     changeStartValue(+e.currentTarget.value)
+    handleSettingsChange?.()
   }
   const classNames = {
     root: s.display,

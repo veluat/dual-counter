@@ -4,13 +4,12 @@ import {useSelector} from "react-redux";
 import {SwitchButtons} from '../../common/components'
 import {IntegratedCounter} from '../integrated-counter'
 import {Counter} from '../counter'
-import {useCounterActions} from '../../redux'
+import {getCountState, useCounterActions} from '../../redux'
 import {VariantType} from '../../common/types'
-import {getCountState} from '../../redux'
 
 export function App() {
 
-  const countState = useSelector(getCountState);
+  const countState = useSelector(getCountState)
   const actions = useCounterActions()
 
   const [counterVariant, setCounterVariant] = React.useState<VariantType>('counter')

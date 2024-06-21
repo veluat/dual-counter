@@ -3,21 +3,20 @@
 
 .root {
   @include container($height: 200px);
-  @include font(100px, $primaryColor);
-  vertical-align: middle;
-  color: $primaryColor;
+  @include font($size: 100px, $color: $primaryColor);
+
   .notification,
   .info {
     @include font($size: 28px, $color: $primaryColor)
   }
 
   .error,
-  .plusSize{
+  .plusSize {
     color: $errorColor;
   }
 
   .plusSize {
-   font-size: 130px;
+    font-size: 130px;
   }
 
 }

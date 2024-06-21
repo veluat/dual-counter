@@ -2,12 +2,13 @@
 
 .root {
   width: 100%;
-.container {
-  @include container;
-  @include flex($direction: column, $gap: 20px);
 
-  .display_button {
-    @include container($height: 120px);
+  .container {
+    @include container;
+    @include flex($direction: column, $gap: 20px);
+
+    .display_button {
+      @include container($height: 120px);
+    }
   }
-}
 }

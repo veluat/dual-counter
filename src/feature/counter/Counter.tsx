@@ -1,8 +1,6 @@
-import React from 'react';
-import {CountDisplay} from "../../common/components";
-import {Button} from "../../common/components";
+import React, {useState} from 'react';
+import {Button, CountDisplay, SettingsDisplay} from "../../common/components";
 import s from './Counter.module.scss'
-import {SettingsDisplay} from '../../common/components'
 import {CounterPropsType} from '../../common/types'
 
 export const Counter: React.FC<CounterPropsType> = ({
@@ -14,6 +12,16 @@ export const Counter: React.FC<CounterPropsType> = ({
                                                       ...countState
                                                     }) => {
 
+  const [isSettingsUpdated, setIsSettingsUpdated] = useState(false)
+
+  const handleSettingsChange = () => {
+    setIsSettingsUpdated(true)
+  }
+
+  const handleClickSet = () => {
+    triggerCounterSet()
+    setIsSettingsUpdated(false)
+  }
 
   return (
     <div className={s.root}>
@@ -21,11 +29,16 @@ export const Counter: React.FC<CounterPropsType> = ({
         <SettingsDisplay {...countState}
                          changeStartValue={changeStartValue}
                          changeMaxValue={changeMaxValue}
+                         handleSettingsChange={handleSettingsChange}
         />
         <div className={s.display_button}>
           <Button name={'set'}
-                  isDisabled={countState.error.startValueError || countState.error.maxValueError || countState.disabled}
-                  triggerCounterSet={triggerCounterSet}
+                  isDisabled={
+                    countState.error.startValueError ||
+                    countState.error.maxValueError ||
+                    !isSettingsUpdated
+                  }
+                  triggerCounterSet={handleClickSet}
           />
         </div>
       </div>
@@ -35,11 +48,19 @@ export const Counter: React.FC<CounterPropsType> = ({
         <div className={s.display_button}>
           <Button {...countState}
                   name={'inc'}
-                  isDisabled={countState.count === countState.maxValue || !countState.disabled}
+                  isDisabled={
+                    countState.count === countState.maxValue ||
+                    !countState.disabled ||
+                    isSettingsUpdated
+                  }
                   triggerCounterSet={increaseCount}/>
           <Button {...countState}
                   name={'reset'}
-                  isDisabled={countState.count === countState.startValue || !countState.disabled}
+                  isDisabled={
+                    countState.count === countState.startValue ||
+                    !countState.disabled ||
+                    isSettingsUpdated
+                  }
                   triggerCounterSet={resetCount}/>
         </div>
       </div>
