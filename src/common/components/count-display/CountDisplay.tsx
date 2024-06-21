@@ -3,12 +3,8 @@ import s from './CountDisplay.module.scss'
 import clsx from "clsx";
 import {DisplayPropsType} from '../../types'
 
-export const CountDisplay: React.FC<DisplayPropsType> = ({
-                                                           counter,
-                                                           maxValue,
-                                                           error,
-                                                           disabled
-                                                         }) => {
+export const CountDisplay: React.FC<DisplayPropsType> = ({counter, maxValue, error, disabled}) => {
+
   const classNames = {
     root: s.root,
     notification: clsx(s.notification, error && s.error),

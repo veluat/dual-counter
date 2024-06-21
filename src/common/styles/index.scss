@@ -9,10 +9,6 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -21,8 +17,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $backgroundColor;
   overflow-x: hidden;
-  position: relative;
   @include font;
+  width: 100%;
+  height: 100%;
 }
 
 code {

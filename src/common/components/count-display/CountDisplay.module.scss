@@ -2,7 +2,8 @@
 @import '../../styles/variable';
 
 .root {
-  @include container($height: 200px);
+  @include container($max-height: 100%);
+  min-height: 250px;
   @include font($size: 100px, $color: $primaryColor);
 
   .notification,

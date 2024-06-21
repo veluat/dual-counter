@@ -4,11 +4,16 @@
   width: 100%;
 
   .container {
-    @include container;
+    @include container($max-height: 100%);
     @include flex($direction: column, $gap: 20px);
 
     .display_button {
-      @include container($height: 120px);
+      @include container;
+
+      @media screen and (max-width: 530px) {
+        flex-wrap: wrap;
+        max-height: 100%
+      }
     }
   }
 }

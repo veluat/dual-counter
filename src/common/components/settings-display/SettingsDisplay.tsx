@@ -20,12 +20,14 @@ export const SettingsDisplay: React.FC<SettingsDisplayPropsType> = ({
     changeStartValue(+e.currentTarget.value)
     handleSettingsChange?.()
   }
+
   const classNames = {
     root: s.display,
     wrapperStart: clsx(s.wrapper, {[s.error]: error && error.startValueError,}),
     wrapperMax: clsx(s.wrapper, {[s.error]: error && error.maxValueError,}),
     input: clsx(s.input, error && s.error)
   }
+
   return (
     <div className={classNames.root}>
       <div className={classNames.wrapperMax}>

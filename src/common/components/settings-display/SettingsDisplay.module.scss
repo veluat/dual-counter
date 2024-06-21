@@ -2,11 +2,12 @@
 @import '../../styles/variable';
 
 .display {
-  @include container($height: 200px);
+  @include container($max-height: 100%);
+  min-height: 250px;
   @include flex($direction: column, $gap: 2rem);
 
   .wrapper {
-    @include flex($gap: 50px);
+    @include flex($gap: 50px, $wrap: wrap);
     color: $primaryColor;
 
     .input {
@@ -19,6 +20,11 @@
       &:focus-visible {
         outline: 2px solid $brightColor;
       }
+    }
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      gap: 25px;
     }
   }
 

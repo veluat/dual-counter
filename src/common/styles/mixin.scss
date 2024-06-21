@@ -8,22 +8,24 @@
   justify-content: $justify;
 }
 
-@mixin container($max-width: 500px, $height: 100%) {
+@mixin container($max-width: 500px, $max-height: 120px) {
   @include flex;
+  align-self: center;
   border: 4px solid $primaryColor;
   border-radius: 15px;
   padding: 20px;
   width: 100%;
   max-width: $max-width;
-  height: $height;
+  height: 100%;
+  max-height: $max-height;
   margin: 0 auto;
   position: relative;
 }
 
 @mixin font( $size: 30px, $weight: bold, $height: 1.2, $color: $brightColor, $decoration: none) {
   margin: 0;
-  font-family: Inter, sans-serif;
   font-size: $size;
+  font-family: Inter, sans-serif;
   font-weight: $weight;
   line-height: $height;
   color: $color;

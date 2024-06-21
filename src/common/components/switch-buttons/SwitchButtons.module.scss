@@ -2,16 +2,17 @@
 @import '../../styles/mixin';
 
 .root {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  display: flex;
+  max-height: 60px;
+  height: 100%;
+  @include flex($justify: flex-start, $align: flex-start);
   background-color: $primaryColor;
+  margin-bottom: 20px;
 
   .buttonWrapper {
     width: 100%;
-    @include flex;
+    height: 100%;
+    @include flex($align: flex-start);
     background-color: $backgroundColor;
     color: $brightColor;
 
@@ -40,6 +41,13 @@
 
     .roundedLeft {
       border-radius: 0 0 0 15px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
+    .disabled {
+      font-size: 24px;
     }
   }
 }

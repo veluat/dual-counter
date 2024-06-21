@@ -51,5 +51,20 @@ export type CounterPropsType = InitialStateType & {
 
 export type CounterSettingsPropsType = CounterPropsType & {
   isEditMode: boolean;
-  setEditMode: (isEditMode: boolean) => void;
-};
+  setEditMode: (isEditMode: boolean) => void
+}
+
+export type LayoutPropsType = {
+  counterVariant: VariantType
+  countState: Omit<CounterPropsType,
+    'triggerCounterSet' | 'changeStartValue' |
+    'changeMaxValue' | 'increaseCount' | 'resetCount'>
+  actions: {
+    triggerCounterSet: () => void
+    changeStartValue: (start: number) => void
+    changeMaxValue: (max: number) => void
+    increaseCount: () => void
+    resetCount: () => void
+    setEditMode: (isEditMode: boolean) => void
+  }
+}
