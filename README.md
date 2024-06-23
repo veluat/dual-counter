@@ -26,12 +26,10 @@ ___
 ![counter gif](src/common/assets/read-me/counter.gif)
 
 ### Technology Stack:
-+ React
++ react
   + react-redux
-  + react-dom
-+ Redux
-  + redux-thunk
-+ TypeScript
++ redux
++ typeScript
 + localStorage
 + sass
 + clsx
