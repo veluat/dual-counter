@@ -1,4 +1,4 @@
-# Counter Application
+# Dual Counter App
 
 The full working project can be found [here](https://dual-counter.netlify.app/)
 ___
