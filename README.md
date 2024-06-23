@@ -1,6 +1,6 @@
 # Counter Application
 
-Demo can be found [here](https://dual-counter.netlify.app/)
+The full working project can be found [here](https://dual-counter.netlify.app/)
 ___
 **The Counter Application is a simple web-based application that allows users to increment, decrement, and reset a counter. The application is built using React, Redux, and TypeScript, and it utilizes the localStorage API to persist the counter's state between sessions.
 You can also switch from a dual-monitor setup to an integrated one.**
@@ -9,7 +9,7 @@ You can also switch from a dual-monitor setup to an integrated one.**
 
 ### Key Features:
 + **Counter Functionality:**
-  + Users can increment, decrement, and reset the counter. 
+  + Users can set the initial and maximum value of the counter, and then increment, decrement, and reset the counter. 
   + The counter's value is displayed on the screen.
   + Users can also switch from a dual-monitor setup to an integrated one.
 + **State Management:**
