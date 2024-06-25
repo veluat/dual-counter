@@ -1,12 +1,12 @@
-# Dual Counter App
+# :computer: Dual Counter App
 
-:white_check_mark: The full working project can be found [here](https://dual-counter.netlify.app/)
+### The Dual Counter Application is a simple web-based application that allows users to set the initial and maximum value of the counter, and then increment, decrement, and reset the counter, and also switch from a dual-monitor setup to an integrated one. The application is built using React, Redux, and TypeScript, and it utilizes the localStorage API to persist the counter's state between sessions.
+
+### :link: The full working project can be found [here](https://dual-counter.netlify.app/)
 ___
-**The Dual Counter Application is a simple web-based application that allows users to set the initial and maximum value of the counter, and then increment, decrement, and reset the counter, and also switch from a dual-monitor setup to an integrated one. The application is built using React, Redux, and TypeScript, and it utilizes the localStorage API to persist the counter's state between sessions.**
-
 ![counter](src/common/assets/read-me/counter2.jpg)
 
-### Key Features:
+### :white_check_mark: Key Features:
 + **Counter Functionality:**
   + Users can set the initial and maximum value of the counter, and then increment, decrement, and reset the counter. 
   + The counter's value is displayed on the screen.
@@ -25,7 +25,7 @@ ___
 
 ![counter gif](src/common/assets/read-me/counter.gif)
 
-### Technology Stack:
+### :white_check_mark: Technology Stack:
 + react
   + react-redux
 + redux
@@ -35,5 +35,5 @@ ___
 + clsx
 + eslint
 
-### Project Structure:
+### :white_check_mark: Project Structure:
 ![structure](src/common/assets/read-me/structure.png)
